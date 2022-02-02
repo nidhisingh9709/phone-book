@@ -38,9 +38,10 @@ public class ContactService {
 	}
 
     @Transactional
-	public void updateContact(ContactInfo c, Integer contactId) {
+	public ContactInfo updateContact(ContactInfo c) {
 		// TODO Auto-generated method stub
-		contactRepository.save(c);
+		return contactRepository.save(c);
+		}
 	}
 
-}
+

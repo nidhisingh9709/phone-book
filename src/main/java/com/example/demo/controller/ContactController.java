@@ -50,10 +50,11 @@ public class ContactController {
 		// TODO Auto-generated method stub
         contactService.deleteContact(contactId);
 	}
+	
 	//update
-	@PutMapping("/contact-info/{contactId}")
-	public void updateContact(@RequestBody ContactInfo c, @PathVariable("contactId") Integer contactId) {
-		contactService.updateContact(c,contactId);
+	@PutMapping("/Contact-info")
+	public ContactInfo updateContact(@RequestBody ContactInfo c) {
+		return contactService.updateContact(c);
 	
 	}
 }

@@ -25,12 +25,12 @@ public class ContactInfo {
 
 	@NotBlank
 	@Column(name = "first_name")
-	@Size(min = 4, max = 15, message = "Name should have atleast 4 letters")
+	@Size(max = 15)
 	private String name;
 
 	@NotBlank
 	@Column(name = "last_name")
-	@Size(min = 4, max = 15)
+	@Size(max = 15)
 	private String surname;
 
 	@Email
@@ -38,6 +38,7 @@ public class ContactInfo {
 
 	@NotBlank
 	@Size(max=50)
+	@Pattern(regexp = "^[a-zA-Z ]+$")
 	private String address;
 
 	@NotBlank
@@ -54,9 +55,13 @@ public class ContactInfo {
 	@JoinColumn(name = "fk_mobile_id", referencedColumnName = "id")
     MobileNumber mobileNumber;
 
+	public ContactInfo() {
+		
+	}
+	
 	public ContactInfo(Integer contactId,
-			@NotBlank @Size(min = 4, max = 15, message = "Name should have atleast 4 letters") String name,
-			@NotBlank @Size(min = 4, max = 15) String surname, @Email String email,
+			@NotBlank @Size( max = 15) String name,
+			@NotBlank @Size(max = 15) String surname, @Email String email,
 			@NotBlank @Pattern(regexp = "^[A-Za-z0-9 ]* $") String address,
 			@Pattern(regexp = "^[A-Za-z0-9 ]* $") String city,
 			@Pattern(regexp = "^[0-9]+$") @Size(min = 8) String pin) {

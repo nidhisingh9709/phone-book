@@ -9,6 +9,7 @@ import javax.persistence.OneToOne;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
+
 @Entity
 public class MobileNumber {
 
@@ -19,12 +20,15 @@ public class MobileNumber {
 	
 	@NotBlank
 	@Column(name="personal_mobile_no")
+	@Pattern(regexp="(^[0-9]{10}$)")
 	private String personalNumber;
 	
-
+	
+	@Pattern(regexp="(^$|[0-9]{10})")
 	@Column(name= "Home_mobile_No")
 	private String homePhoneNumber;
 	
+	@Pattern(regexp="(^$|[0-9]{10})")
 	@Column(name="Office_phone_No")
 	private String workPhoneNumber;
 	
